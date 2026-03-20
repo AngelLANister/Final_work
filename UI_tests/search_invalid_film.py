@@ -11,8 +11,8 @@ def test_search_invalid_film():
     driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.get("https://www.kinopoisk.ru/?utm_referrer=www.kinopoisk.ru")
-    waiter1 = WebDriverWait(driver, 40)
-    waiter1.until(EC.visibility_of_element_located(
+    waiter = WebDriverWait(driver, 40)
+    waiter.until(EC.visibility_of_element_located(
         (By.CSS_SELECTOR, 'button[class="styles_root__mwAP6"]')))
     driver.find_element(By.CSS_SELECTOR, 'button[class="styles_root__mwAP6"]').click()
 
@@ -22,8 +22,8 @@ def test_search_invalid_film():
 
     driver.find_element(By.CSS_SELECTOR,
                       'svg[class="styles_icon__a6f9D search-form-submit-button__icon"]').click()
-    waiter2 = WebDriverWait(driver, 40)
-    waiter2.until(EC.visibility_of_element_located(
+    waiter = WebDriverWait(driver, 40)
+    waiter.until(EC.visibility_of_element_located(
         (By.CSS_SELECTOR, 'div[class="search_results_top"]')))
     film = driver.find_element(By.CSS_SELECTOR, 'h2[style="font:100 18px"]').text
 
